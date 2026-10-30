@@ -1,87 +1,106 @@
 <!doctype html>
 <html lang="de">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Josh Salon – Coiffeur in Ebikon</title>
-<meta name="description" content="Josh Salon – Ihr Coiffeur an der Zentralstrasse 30 in Ebikon. Haarschnitte, Bart & Styling.">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="img/logo.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Josh Salon</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" id="favicon" href="img/logo.jpg">
 </head>
 <body>
 
-<header>
-  <div class="wrap">
-    <a href="#" class="logo"><img src="img/logo.jpg" alt="Josh Salon Logo"> JOSH <span>SALON</span></a>
-    <nav>
-      <a href="#leistungen">Leistungen</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="tel:+41412120531" class="btn">Anrufen</a>
-    </nav>
-  </div>
-</header>
-
-<div class="hero">
-  <div class="wrap">
-    <div class="badge"><span class="dot" id="statusDot"></span><span id="statusText">Öffnungszeiten werden geladen…</span></div>
-    <img class="hero-logo" src="img/logo.jpg" alt="Josh Salon Haircut Logo">
-    <h1>JOSH SALON</h1>
-    <p>Ihr Coiffeur in Ebikon. Präzise Haarschnitte, gepflegte Bärte und Styling – mit Zeit für Sie.</p>
-    <div class="actions">
-      <a href="tel:+41412120531" class="btn">Jetzt Termin vereinbaren</a>
-      <a href="#kontakt" class="btn ghost">So finden Sie uns</a>
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="brand">
+        <img class="brand__logo" id="brand-logo" src="" alt="">
+        <span class="brand__name" id="brand-name"></span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Hauptnavigation">
+        <ul class="nav__list" id="nav-list"></ul>
+      </nav>
+      <a class="btn btn--small" id="nav-cta" href="#"></a>
+      <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menü öffnen">
+        <span></span><span></span>
+      </button>
     </div>
-  </div>
-</div>
+  </header>
 
-<section id="leistungen">
-  <div class="wrap">
-    <div class="eyebrow">Leistungen</div>
-    <h2 class="title">Was wir für Sie tun</h2>
-    <div class="grid">
-      <div class="card"><div class="icon">✂️</div><h3>Haarschnitt</h3><p>Klassisch oder modern – abgestimmt auf Ihren Typ und Ihren Alltag.</p></div>
-      <div class="card"><div class="icon">🪒</div><h3>Bart & Rasur</h3><p>Konturen, Trimmen und Nassrasur für ein sauberes Finish.</p></div>
-      <div class="card"><div class="icon">💈</div><h3>Fade & Styling</h3><p>Saubere Übergänge und Styling-Tipps für zu Hause.</p></div>
-      <div class="card"><div class="icon">👦</div><h3>Kinderhaarschnitt</h3><p>Entspannt und schnell – für die Kleinen.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="kontakt" class="info">
-  <div class="wrap">
-    <div class="eyebrow">Besuchen Sie uns</div>
-    <h2 class="title">Kontakt & Öffnungszeiten</h2>
-    <div class="grid">
-      <div>
-        <h3>Kontakt</h3>
-        <address>Josh Salon<br>Zentralstrasse 30<br>6030 Ebikon</address>
-        <a href="tel:+41412120531">+41 41 212 05 31</a>
-        <a href="mailto:josh.salon@hotmail.com">josh.salon@hotmail.com</a>
-        <a href="mailto:ceger.coiffeur@gmail.com">ceger.coiffeur@gmail.com</a>
-        <p class="langs">Wir sprechen: Deutsch</p>
+  <main id="top">
+    <section class="hero" id="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="status" id="status"><span class="status__dot"></span><span id="status-text"></span></p>
+          <p class="eyebrow" id="hero-eyebrow"></p>
+          <h1 class="hero__title" id="hero-title"></h1>
+          <p class="hero__subtitle" id="hero-subtitle"></p>
+          <div class="hero__actions">
+            <a class="btn" id="hero-cta" href="#"></a>
+            <a class="btn btn--ghost" id="hero-cta2" href="#"></a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <img class="hero__logo" id="hero-logo" src="" alt="">
+        </div>
       </div>
-      <div>
-        <h3>Öffnungszeiten</h3>
-        <table id="hours">
-          <tr><td>Montag</td><td>09:00 – 19:00</td></tr>
-          <tr><td>Dienstag</td><td>09:00 – 19:00</td></tr>
-          <tr><td>Mittwoch</td><td>09:00 – 19:00</td></tr>
-          <tr><td>Donnerstag</td><td>09:00 – 19:00</td></tr>
-          <tr><td>Freitag</td><td>09:00 – 19:00</td></tr>
-          <tr><td>Samstag</td><td>09:00 – 17:00</td></tr>
-          <tr><td>Sonntag</td><td>Geschlossen</td></tr>
-        </table>
+    </section>
+
+    <section class="section" id="leistungen">
+      <div class="container">
+        <p class="eyebrow" id="services-eyebrow"></p>
+        <h2 class="section__title" id="services-title"></h2>
+        <div class="services" id="services-list"></div>
       </div>
+    </section>
+
+    <section class="section section--alt" id="ueber-uns">
+      <div class="container about">
+        <div>
+          <p class="eyebrow" id="about-eyebrow"></p>
+          <h2 class="section__title" id="about-title"></h2>
+        </div>
+        <div>
+          <p class="about__text" id="about-text"></p>
+          <p class="about__langs"><span id="about-langs-label"></span> <span id="about-langs"></span></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="zeiten">
+      <div class="container split">
+        <div>
+          <p class="eyebrow" id="hours-eyebrow"></p>
+          <h2 class="section__title" id="hours-title"></h2>
+        </div>
+        <ul class="hours" id="hours-list"></ul>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="kontakt">
+      <div class="container contact">
+        <div class="contact__info">
+          <p class="eyebrow" id="contact-eyebrow"></p>
+          <h2 class="section__title" id="contact-title"></h2>
+          <address class="contact__address" id="contact-address"></address>
+          <ul class="contact__links" id="contact-links"></ul>
+          <a class="btn" id="contact-directions" href="#" target="_blank" rel="noopener"></a>
+        </div>
+        <div class="contact__map">
+          <iframe id="contact-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="footer-year"></span> <span id="footer-text"></span></span>
     </div>
-  </div>
-</section>
+  </footer>
 
-<iframe class="map" loading="lazy" title="Karte Josh Salon"
-  src="https://maps.google.com/maps?q=Zentralstrasse%2030%2C%206030%20Ebikon&z=16&output=embed"></iframe>
-
-<footer>© <span id="year"></span> Josh Salon · Zentralstrasse 30, 6030 Ebikon</footer>
-
-<script src="script.js"></script>
+  <script src="content.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

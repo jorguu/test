@@ -42,15 +42,16 @@ window.SITE_CONTENT = {
     closedText: "Zurzeit geschlossen"
   },
 
-  // --- Servicios. El primero sale destacado. Puedes añadir o quitar bloques. ---
+  // --- Servicios: una tarjeta por bloque. Puedes añadir o quitar bloques. ---
+  // icon: un emoji (copia y pega uno de https://emojipedia.org)
   services: {
     eyebrow: "Leistungen",
-    title: "Handwerk, das man sieht.",
+    title: "Was wir für Sie tun",
     items: [
-      { number: "01", title: "Haarschnitt", description: "Klassisch oder modern – abgestimmt auf Ihren Typ, Ihre Haarstruktur und Ihren Alltag." },
-      { number: "02", title: "Fade & Übergänge", description: "Saubere Skin- oder Low-Fades mit präzisen Konturen." },
-      { number: "03", title: "Bart & Rasur", description: "Trimmen, Konturen und Nassrasur für ein gepflegtes Finish." },
-      { number: "04", title: "Kinderhaarschnitt", description: "Entspannt und schnell – für die Kleinen." }
+      { icon: "✂️", title: "Haarschnitt", description: "Klassisch oder modern – abgestimmt auf Ihren Typ und Ihren Alltag." },
+      { icon: "🪒", title: "Bart & Rasur", description: "Konturen, Trimmen und Nassrasur für ein sauberes Finish." },
+      { icon: "💈", title: "Fade & Styling", description: "Saubere Übergänge und Styling-Tipps für zu Hause." },
+      { icon: "👦", title: "Kinderhaarschnitt", description: "Entspannt und schnell – für die Kleinen." }
     ]
   },
 

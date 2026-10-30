@@ -45,13 +45,15 @@ document.addEventListener("DOMContentLoaded", () => {
     section.setAttribute("aria-label", hero.backgroundAlt || "");
   }
 
-  /* ---------- Servicios (el primero va destacado) ---------- */
+  /* ---------- Servicios (una tarjeta por servicio) ---------- */
   setText("services-eyebrow", c.services.eyebrow);
   setText("services-title", c.services.title);
   const servicesList = $("services-list");
-  c.services.items.forEach(({ number, title, description }, i) => {
-    const card = el("article", "service reveal" + (i === 0 ? " service--featured" : ""));
-    card.append(el("span", "service__number", number), el("h3", "service__title", title), el("p", "service__text", description));
+  c.services.items.forEach(({ icon, title, description }) => {
+    const card = el("article", "service reveal");
+    const iconEl = el("span", "service__icon", icon);
+    iconEl.setAttribute("aria-hidden", "true");
+    card.append(iconEl, el("h3", "service__title", title), el("p", "service__text", description));
     servicesList.appendChild(card);
   });
 

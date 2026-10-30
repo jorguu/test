@@ -28,7 +28,7 @@ window.SITE_CONTENT = {
     title: "Gepflegt aussehen.\nOhne Umwege.",
     subtitle: "Präzise Haarschnitte, saubere Fades und Bartpflege an der Zentralstrasse 30 – mitten in Ebikon.",
     ctaPrimaryText: "Termin vereinbaren",
-    ctaPrimaryLink: "tel:+41412120531",
+    ctaPrimaryLink: "termin.html",
     ctaSecondaryText: "So finden Sie uns",
     ctaSecondaryLink: "#kontakt",
     // Foto de fondo opcional. Déjalo vacío ("") para usar el fondo oscuro.
@@ -44,15 +44,50 @@ window.SITE_CONTENT = {
 
   // --- Servicios: una tarjeta por bloque. Puedes añadir o quitar bloques. ---
   // icon: un emoji (copia y pega uno de https://emojipedia.org)
+  // id: nombre corto sin espacios (se usa en el enlace a la página de citas)
+  // duration: duración aproximada que se muestra al pedir cita (ajústala)
   services: {
     eyebrow: "Leistungen",
     title: "Was wir für Sie tun",
+    cardCta: "Termin buchen →",
     items: [
-      { icon: "✂️", title: "Haarschnitt", description: "Klassisch oder modern – abgestimmt auf Ihren Typ und Ihren Alltag." },
-      { icon: "🪒", title: "Bart & Rasur", description: "Konturen, Trimmen und Nassrasur für ein sauberes Finish." },
-      { icon: "💈", title: "Fade & Styling", description: "Saubere Übergänge und Styling-Tipps für zu Hause." },
-      { icon: "👦", title: "Kinderhaarschnitt", description: "Entspannt und schnell – für die Kleinen." }
+      { id: "haarschnitt", icon: "✂️", title: "Haarschnitt", duration: "ca. 30 Min.", description: "Klassisch oder modern – abgestimmt auf Ihren Typ und Ihren Alltag." },
+      { id: "bart", icon: "🪒", title: "Bart & Rasur", duration: "ca. 20 Min.", description: "Konturen, Trimmen und Nassrasur für ein sauberes Finish." },
+      { id: "fade", icon: "💈", title: "Fade & Styling", duration: "ca. 45 Min.", description: "Saubere Übergänge und Styling-Tipps für zu Hause." },
+      { id: "kinder", icon: "👦", title: "Kinderhaarschnitt", duration: "ca. 20 Min.", description: "Entspannt und schnell – für die Kleinen." }
     ]
+  },
+
+  // --- Página de citas (termin.html) ---
+  // Es solo una maqueta: el formulario NO envía nada todavía.
+  booking: {
+    pageTitle: "Termin buchen – Josh Salon",
+    backText: "← Zurück zur Startseite",
+    eyebrow: "Online-Termin",
+    title: "Termin buchen",
+    subtitle: "Wählen Sie Leistung, Tag und Uhrzeit. Wir bestätigen Ihren Termin telefonisch oder per E-Mail.",
+    stepService: "Leistung",
+    stepDate: "Tag",
+    stepTime: "Uhrzeit",
+    stepDetails: "Ihre Angaben",
+    daysAhead: 14,                 // Cuántos días se pueden reservar por adelantado
+    slotMinutes: 30,               // Cada cuántos minutos hay una hora libre
+    noSlotsText: "An diesem Tag sind keine Termine mehr frei.",
+    pickDateFirst: "Bitte zuerst einen Tag wählen.",
+    fields: {
+      name: "Name",
+      phone: "Telefon",
+      email: "E-Mail (optional)",
+      note: "Bemerkung (optional)"
+    },
+    summaryTitle: "Ihr Termin",
+    summaryEmpty: "—",
+    submitText: "Termin anfragen",
+    successTitle: "Vielen Dank!",
+    successText: "Ihre Anfrage ist eingegangen. Wir melden uns in Kürze, um den Termin zu bestätigen.",
+    successBack: "Zur Startseite",
+    weekdaysShort: ["So", "Mo", "Di", "Mi", "Do", "Fr", "Sa"],
+    months: ["Jan.", "Feb.", "März", "Apr.", "Mai", "Juni", "Juli", "Aug.", "Sep.", "Okt.", "Nov.", "Dez."]
   },
 
   // --- Sección "Sobre nosotros" ---

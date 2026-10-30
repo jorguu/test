@@ -178,6 +178,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
    ========================================================= */
 .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
 .service {
+  display: flex; flex-direction: column;
   background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius);
   padding: 1.75rem;
   transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
@@ -185,7 +186,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
 .service:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -24px rgb(0 0 0 / 0.25); border-color: rgb(201 160 99 / 0.5); }
 .service__icon { display: block; font-size: 1.7rem; line-height: 1; margin-bottom: 1.4rem; }
 .service__title { font-size: 1.3rem; margin-bottom: 0.4rem; }
-.service__text { color: var(--color-muted); font-size: 0.95rem; }
+.service__text { color: var(--color-muted); font-size: 0.95rem; margin-bottom: 1.25rem; }
+.service__cta { margin-top: auto; font-size: 0.88rem; font-weight: 600; color: var(--color-accent-strong); transition: transform var(--transition); }
+.service:hover .service__cta { transform: translateX(4px); }
 
 /* =========================================================
    ÜBER UNS · ZEITEN
@@ -227,6 +230,80 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: 1.
    ========================================================= */
 .footer { background: #0b0a09; color: rgb(243 239 232 / 0.5); font-size: 0.85rem; padding: var(--space-md) 0; }
 .footer__inner { display: flex; justify-content: center; text-align: center; }
+
+/* =========================================================
+   TERMIN · página de citas (termin.html)
+   ========================================================= */
+.header--solid { background: rgb(18 17 16 / 0.92); }
+.back-link { font-size: 0.9rem; color: rgb(243 239 232 / 0.75); transition: color var(--transition); }
+.back-link:hover { color: var(--color-accent); }
+
+.booking { padding: calc(72px + var(--space-lg)) 0 var(--space-xl); }
+.booking__intro { margin-bottom: var(--space-lg); }
+.booking__intro .section__title { margin-bottom: var(--space-sm); }
+.booking__intro p:last-child { color: var(--color-muted); max-width: 56ch; }
+.booking__layout { display: grid; gap: var(--space-md); align-items: start; }
+.booking__layout > * { min-width: 0; } /* evita que la fila de días ensanche la página */
+
+.step { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius); padding: clamp(1.25rem, 3vw, 2rem); margin-bottom: 1.25rem; }
+.step__title { display: flex; align-items: center; gap: 0.75rem; font-size: 1.3rem; margin-bottom: 1.25rem; }
+.step__num { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: var(--color-dark); color: var(--color-accent); font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; }
+
+/* Opciones seleccionables (servicio, día, hora) */
+.choice {
+  border: 1px solid var(--color-line); border-radius: 0.75rem; background: var(--color-bg);
+  cursor: pointer; font: inherit; color: inherit; text-align: left;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+.choice:hover:not(:disabled) { border-color: var(--color-accent); transform: translateY(-2px); }
+.choice[aria-pressed="true"] { background: var(--color-dark); color: #f3efe8; border-color: var(--color-dark); box-shadow: 0 12px 24px -14px rgb(0 0 0 / 0.5); }
+.choice:disabled { opacity: 0.35; cursor: not-allowed; }
+
+.service-options { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; }
+.service-option { padding: 1rem; display: flex; gap: 0.8rem; align-items: center; }
+.service-option__icon { font-size: 1.4rem; }
+.service-option strong { display: block; font-weight: 600; }
+.service-option small { color: var(--color-muted); }
+.service-option[aria-pressed="true"] small { color: rgb(243 239 232 / 0.65); }
+
+.day-options { display: flex; gap: 0.6rem; overflow-x: auto; padding: 0.25rem 0.1rem 0.75rem; scroll-snap-type: x mandatory; }
+.day-option { flex: 0 0 72px; padding: 0.7rem 0.4rem; text-align: center; scroll-snap-align: start; }
+.day-option span { display: block; font-size: 0.78rem; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.day-option strong { display: block; font-family: var(--font-display); font-size: 1.5rem; line-height: 1.2; }
+.day-option[aria-pressed="true"] span { color: var(--color-accent); }
+
+.time-options { display: grid; grid-template-columns: repeat(auto-fill, minmax(84px, 1fr)); gap: 0.6rem; }
+.time-option { padding: 0.65rem; text-align: center; font-variant-numeric: tabular-nums; font-weight: 500; }
+.hint { color: var(--color-muted); font-size: 0.92rem; }
+
+.form-grid { display: grid; gap: 1rem; }
+.field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.35rem; }
+.field input, .field textarea {
+  width: 100%; font: inherit; padding: 0.8rem 1rem; border: 1px solid var(--color-line); border-radius: 0.65rem;
+  background: var(--color-bg); color: var(--color-text); transition: border-color var(--transition), background var(--transition);
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--color-accent); background: var(--color-surface); }
+.field textarea { min-height: 90px; resize: vertical; }
+
+.summary { background: var(--color-dark); color: #f3efe8; border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow); }
+.summary h2 { font-size: 1.5rem; margin-bottom: 1.25rem; }
+.summary dl { display: grid; grid-template-columns: auto 1fr; gap: 0.6rem 1rem; margin-bottom: 1.5rem; font-size: 0.95rem; }
+.summary dt { color: rgb(243 239 232 / 0.55); }
+.summary dd { text-align: right; font-weight: 500; }
+.summary .btn { width: 100%; }
+.summary .btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+.success { text-align: center; max-width: 520px; margin: 0 auto; padding: var(--space-lg) var(--space-md); background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius); }
+.success__icon { display: grid; place-items: center; width: 64px; height: 64px; margin: 0 auto 1.25rem; border-radius: 50%; background: var(--color-dark); color: var(--color-accent); font-size: 1.6rem; }
+.success h2 { font-size: 2rem; margin-bottom: 0.75rem; }
+.success p { color: var(--color-muted); margin-bottom: 1.5rem; }
+.success dl { display: inline-grid; grid-template-columns: auto auto; gap: 0.3rem 1rem; text-align: left; margin-bottom: 1.75rem; font-size: 0.95rem; }
+.success dt { color: var(--color-muted); }
+
+@media (min-width: 961px) {
+  .booking__layout { grid-template-columns: 1fr 340px; }
+  .summary { position: sticky; top: 96px; }
+}
 
 /* Animación de entrada al hacer scroll */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 700ms ease, transform 700ms ease; }

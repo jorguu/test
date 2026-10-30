@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Termin buchen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" id="favicon" href="img/logo.jpg">
+</head>
+<body>
+
+  <header class="header header--solid">
+    <div class="container header__inner">
+      <a href="index.html" class="brand">
+        <img class="brand__logo" id="brand-logo" src="" alt="">
+        <span class="brand__name" id="brand-name"></span>
+      </a>
+      <a class="back-link" id="back-link" href="index.html"></a>
+    </div>
+  </header>
+
+  <main class="booking">
+    <div class="container" id="booking-root">
+      <div class="booking__intro">
+        <p class="eyebrow" id="booking-eyebrow"></p>
+        <h1 class="section__title" id="booking-title"></h1>
+        <p id="booking-subtitle"></p>
+      </div>
+
+      <form class="booking__layout" id="booking-form" novalidate>
+        <div>
+          <section class="step" aria-labelledby="step-service">
+            <h2 class="step__title" id="step-service"><span class="step__num">1</span><span id="step-service-text"></span></h2>
+            <div class="service-options" id="service-options"></div>
+          </section>
+
+          <section class="step" aria-labelledby="step-date">
+            <h2 class="step__title" id="step-date"><span class="step__num">2</span><span id="step-date-text"></span></h2>
+            <div class="day-options" id="day-options"></div>
+          </section>
+
+          <section class="step" aria-labelledby="step-time">
+            <h2 class="step__title" id="step-time"><span class="step__num">3</span><span id="step-time-text"></span></h2>
+            <div class="time-options" id="time-options"></div>
+          </section>
+
+          <section class="step" aria-labelledby="step-details">
+            <h2 class="step__title" id="step-details"><span class="step__num">4</span><span id="step-details-text"></span></h2>
+            <div class="form-grid">
+              <div class="field"><label for="f-name" id="l-name"></label><input id="f-name" name="name" autocomplete="name" required></div>
+              <div class="field"><label for="f-phone" id="l-phone"></label><input id="f-phone" name="phone" type="tel" autocomplete="tel" required></div>
+              <div class="field"><label for="f-email" id="l-email"></label><input id="f-email" name="email" type="email" autocomplete="email"></div>
+              <div class="field"><label for="f-note" id="l-note"></label><textarea id="f-note" name="note"></textarea></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="summary" aria-live="polite">
+          <h2 id="summary-title"></h2>
+          <dl>
+            <dt id="sum-service-label"></dt><dd id="sum-service"></dd>
+            <dt id="sum-date-label"></dt><dd id="sum-date"></dd>
+            <dt id="sum-time-label"></dt><dd id="sum-time"></dd>
+          </dl>
+          <button class="btn" type="submit" id="submit-btn" disabled></button>
+        </aside>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="footer-year"></span> <span id="footer-text"></span></span>
+    </div>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="booking.js"></script>
+</body>
+</html>

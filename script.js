@@ -49,11 +49,13 @@ document.addEventListener("DOMContentLoaded", () => {
   setText("services-eyebrow", c.services.eyebrow);
   setText("services-title", c.services.title);
   const servicesList = $("services-list");
-  c.services.items.forEach(({ icon, title, description }) => {
-    const card = el("article", "service reveal");
+  c.services.items.forEach(({ id, icon, title, description }) => {
+    // Cada tarjeta es un enlace a la página de citas con el servicio ya elegido
+    const card = el("a", "service reveal");
+    card.href = "termin.html?service=" + encodeURIComponent(id);
     const iconEl = el("span", "service__icon", icon);
     iconEl.setAttribute("aria-hidden", "true");
-    card.append(iconEl, el("h3", "service__title", title), el("p", "service__text", description));
+    card.append(iconEl, el("h3", "service__title", title), el("p", "service__text", description), el("span", "service__cta", c.services.cardCta));
     servicesList.appendChild(card);
   });
 
